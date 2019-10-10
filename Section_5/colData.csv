@@ -1,0 +1,7 @@
+"file","condition","type"
+"WT1","untreated","single-read"
+"WT2","untreated","single-read"
+"WT3","untreated","single-read"
+"Mutant1","treated","single-read"
+"Mutant2","treated","single-read"
+"Mutant3","treated","single-read"
