@@ -48,4 +48,4 @@ Details on the requirements and usage of all shell wrapper scripts can be access
 
 
 ## Documentation
-For a comprehensive guide on each section and corresponding scripts, please see the documentation available [here](beast-docs.readthedocs.io).
+For a comprehensive guide on each section and corresponding scripts, please see the documentation available [here](https://beast-docs.readthedocs.io/en/latest/).
