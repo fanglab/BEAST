@@ -221,7 +221,7 @@ suppressWarnings(suppressMessages({
     
     ## SEPARATE BY GENOME ###########################################
     for(set in 1:length(namesg3)){                                  #
-      csv_file <- paste0(genomes3[set],"/modifications.csv.gz")      #
+      csv_file <- paste0(genomes3[set],"/modifications.csv")      #
       fasta_file <- paste0(genomes3[set],"/genome.fasta")            #
       motif_file <- paste0(genomes3[set],"/motif_summary.csv")       #
       
