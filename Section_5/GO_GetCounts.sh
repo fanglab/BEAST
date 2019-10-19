@@ -14,7 +14,7 @@ then
 	echo "#############################################################################################################################"
 	echo "Performs RNA-seq paired-end read cleaning and mapping for differential expression analysis."
 	echo ""
-	echo "Requires: Java, bwa, AdapterRemoval, Trimmomatic, SortMeRNA, merge-paired-reads.sh, unmerge-paired-reads.sh, Samtools, featureCounts"
+	echo "Requires: Java, bwa, AdapterRemoval, Trimmomatic, SortMeRNA, Samtools, featureCounts"
 	echo ""
 	echo "Usage: GO_GetCounts.sh <*.fastq1 file> <*.fastq2 file> <*.fasta reference file> <*.SAF annotation file> <PATH to SILVA rRNA_databases folder> <PATH to SILVA index folder> <PATH to Trimmomatic.jar> <PATH to adapters *.fa> <file prefix>"
 	echo "#############################################################################################################################"

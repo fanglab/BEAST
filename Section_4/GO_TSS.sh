@@ -59,7 +59,7 @@ echo ""
 tput setaf 2; echo "Done!"; tput sgr0
 
 
-#echo "Running Parseq - Calling transcripts and post-Parseq. Please wait..."
+echo "Running Parseq - Calling transcripts and post-Parseq. Please wait..."
 Parseq_particle2proba 0.1 "$tmp1" all genome "$wrk_dir" "$5"
 echo ""
 tput setaf 2; echo "Done!"; tput sgr0

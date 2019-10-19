@@ -45,3 +45,7 @@ Details on the requirements and usage of all shell wrapper scripts can be access
 * **GO_CRISPRs.sh** computes [CRISPRs](https://www.ncbi.nlm.nih.gov/pubmed/17577412) from a FASTA file and parses the output into a TAB format.
 * **GO_Integrons.sh** computes integrons from a FASTA file using [Integron Finder](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4889954/).
 * **GO_Prophages** computes prophages in a bacterial genome using [Phage Finder](https://academic.oup.com/nar/article/34/20/5839/3100473).
+
+
+## Documentation
+For a comprehensive guide on each section and corresponding scripts, please see the documentation available [here](https://www.ncbi.nlm.nih.gov/pubmed/25120263).
