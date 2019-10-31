@@ -60,12 +60,11 @@ echo ""
 
 echo "Starting Per-branch model:"
 echo ""
-set outfile = `echo $prefix.smout*`
+set outfile = `echo $prefix.smout.em.txt`
 set Rtheta = `awk '{if($1=="R/theta") print $2}' $outfile`
 set Delta = `awk '{if($1=="1/delta") print $2}' $outfile`
 set nu = `awk '{if($1=="nu") print $2}' $outfile`
 ClonalFrameML $tree $alignment $prefix.pbmout -kappa $kappa -embranch true -embranch_dispersion 0.1 -initial_values "$Rtheta $Delta $nu" > $prefix.pbmout.log.txt
-echo "Per-branch model finished."
 echo ""
 echo "Per-branch model finished."
 echo ""

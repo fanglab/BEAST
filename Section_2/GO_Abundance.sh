@@ -26,7 +26,7 @@ endif
 
 set fasta_file = "$1"
 set motif = "$2"
-set motif_up = `echo "$motif" | awk '{print toupper}'`
+set motif_up = `echo "$motif" | awk '{print toupper($0)}'`
 set RMES_l = "$3"
 set RMES_w = "$4"
 set apx_method = "$5"
@@ -53,8 +53,8 @@ tput setaf 2; echo "Done!"; tput sgr0
 
 echo "Running R'MES..."
 
-./rmes --"$5" -s "$1" -l "$3" -m "$4" -o temp1
-./rmes.format --tmax 0 --tmin 0 < temp1.0 > $b.RMES.txt
+rmes --"$5" -s "$1" -l "$3" -m "$4" -o temp1
+rmes.format --tmax 0 --tmin 0 < temp1.0 > $b.RMES.txt
 rm temp*
 
 tput setaf 2; echo "Done!"; tput sgr0

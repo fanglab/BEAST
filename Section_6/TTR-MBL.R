@@ -11,6 +11,5 @@ write.csv(TTR, file = "TTR.csv")
 
 #Computing Mean Branch Length
 mytree <- read.tree(args[7])
-mytree <- read.tree(file="/your_path_to_Newick_tree")
 MBL <- mean(mytree$edge.length)
 write.csv(MBL, file = "MBL.csv")

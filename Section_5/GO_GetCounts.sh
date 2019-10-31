@@ -39,7 +39,7 @@ wrk_dir=`cd $rootdir && pwd`
 
 
 echo "Running Trimmomatic to eliminate adapters and low quality reads..."
-java -jar $TRIMPATH PE -phred33 -threads 8 $filein1 $filein2 $prefix_R1_001_P.fastq $prefix_R1_001_U.fastq $prefix_R2_001_P.fastq $prefix_R2_001_U.fastq ILLUMINACLIP:$ADAPATH:2:30:10:8:True SLIDINGWINDOW:4:15 LEADING:20 TRAILING:20 MINLEN:50
+java -jar "$TRIMPATH" PE -phred33 -threads 8 "$filein1" "$filein2" "$prefix"_R1_001_P.fastq "$prefix"_R1_001_U.fastq "$prefix"_R2_001_P.fastq "$prefix"_R2_001_U.fastq ILLUMINACLIP:"$ADAPATH":2:30:10:8:True SLIDINGWINDOW:4:15 LEADING:20 TRAILING:20 MINLEN:50
 echo ""
 tput setaf 2; echo "Done!"; tput sgr0
 
@@ -48,19 +48,19 @@ tput setaf 2; echo "Done!"; tput sgr0
 
 
 echo "Running SortMeRNA to eliminate rRNA reads..."
-indexdb_rna --ref $DBPATH/silva-bac-16s-id90.fasta,$IDXPATH/silva-bac-16s-db:\
-$DBPATH/silva-bac-23s-id98.fasta,$IDXPATH/silva-bac-23s-db:\
-$DBPATH/rfam-5s-database-id98.fasta,$IDXPATH/rfam-5s-db -v
+indexdb_rna --ref "$DBPATH"/silva-bac-16s-id90.fasta,"$IDXPATH"/silva-bac-16s-db:\
+"$DBPATH"/silva-bac-23s-id98.fasta,"$IDXPATH"/silva-bac-23s-db:\
+"$DBPATH"/rfam-5s-database-id98.fasta,"$IDXPATH"/rfam-5s-db -v
 
-./merge-paired-reads.sh $prefix_R1_001_P.fastq $prefix_R2_001_P.fastq $prefix_outfile.fastq #Script merge-paired-reads.sh is included in the SortMeRNA package.
+./merge-paired-reads.sh "$prefix"_R1_001_P.fastq "$prefix"_R2_001_P.fastq "$prefix"_outfile.fastq #Script merge-paired-reads.sh is included in the SortMeRNA package.
 
-sortmerna --ref $DBPATH/silva-bac-16s-id90.fasta,$IDXPATH/silva-bac-16s-db:\
-$DBPATH/silva-bac-23s-id98.fasta,$IDXPATH/silva-bac-23s-db:\
-$DBPATH/rfam-5s-database-id98.fasta,$IDXPATH/rfam-5s-db:\
- --reads $prefix_outfile.fastq --num_alignments 1 -a 8 --paired_in --fastx --aligned $prefix_outfile_rRNA\
- --other $prefix_outfile_non_rRNA --log -v
+sortmerna --ref "$DBPATH"/silva-bac-16s-id90.fasta,"$IDXPATH"/silva-bac-16s-db:\
+"$DBPATH"/silva-bac-23s-id98.fasta,"$IDXPATH"/silva-bac-23s-db:\
+"$DBPATH"/rfam-5s-database-id98.fasta,"$IDXPATH"/rfam-5s-db:\
+ --reads "$prefix"_outfile.fastq --num_alignments 1 -a 8 --paired_in --fastx --aligned "$prefix"_outfile_rRNA\
+ --other "$prefix"_outfile_non_rRNA --log -v
  
-./unmerge-paired-reads.sh $prefix_outfile_non_rRNA.fastq $prefix_R1_001_P_rRNA.fastq $prefix_R2_001_P_rRNA.fastq #Script unmerge-paired-reads.sh is included in the SortMeRNA package. 
+./unmerge-paired-reads.sh "$prefix"_outfile_non_rRNA.fastq "$prefix"_R1_001_P_rRNA.fastq "$prefix"_R2_001_P_rRNA.fastq #Script unmerge-paired-reads.sh is included in the SortMeRNA package. 
 
 echo ""
 tput setaf 2; echo "Done!"; tput sgr0
@@ -70,11 +70,12 @@ tput setaf 2; echo "Done!"; tput sgr0
 
 
 echo "Read mapping..."
-bwa mem -t 8 "$filein3" $prefix_R1_001_P_rRNA.fastq $prefix_R2_001_P_rRNA.fastq > $prefix.sam
-samtools view -bS $prefix.sam > $prefix.bam
-samtools sort -T temp -o $prefix.sorted.bam $prefix.bam
-samtools index $prefix.sorted.bam
-featureCounts -p -t exon -g gene_id -T 8 -F SAF -a $filein4 -o $prefix.count.txt $prefix.sorted.bam #Does not consider multi-mapping and multi-overlapping reads.
+bwa index "$filein3"
+bwa mem -t 8 "$filein3" "$prefix"_R1_001_P_rRNA.fastq "$prefix"_R2_001_P_rRNA.fastq > "$prefix".sam
+samtools view -bS "$prefix".sam > "$prefix".bam
+samtools sort -T temp -o "$prefix".sorted.bam "$prefix".bam
+samtools index "$prefix".sorted.bam
+featureCounts -p -t exon -g gene_id -T 8 -F SAF -a "$filein4" -o "$prefix".count.txt "$prefix".sorted.bam #Does not consider multi-mapping and multi-overlapping reads.
 
 rm *._U.fastq
 rm *_outfile.fastq
@@ -90,13 +91,4 @@ tput setaf 2; echo "Done!"; tput sgr0
 
 ######################################################
 
-
-echo "Performing DE analysis. Please wait..."
-echo ""
-Rscript GO_DE.R $prefix.count.txt colData.csv
-echo ""
-tput setaf 2; echo "Done!"; tput sgr0
-
-
-######################################################
 
