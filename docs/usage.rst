@@ -148,9 +148,9 @@ Example usage
 
 	$ ./GO_ConsVar.sh <minimal length of LCB> <number of genomes to align> <species_prefix> <MAUVE_DIR> <motif>
 
-This wrapper performs multiple whole-genome alignment and computes orthologous (conserved/variable) and non-orthologous methylation motifs across genomes. The list of genome FASTA files should be placed in the same folder as GO_ConsVar.sh.
+This wrapper performs multiple whole-genome alignment and computes orthologous (conserved/variable) and non-orthologous methylation motifs across genomes. The list of genome FASTA files should be placed in the same folder as **GO_ConsVar.sh**.
 
-For example, to align the two dummy C. difficile genomes provided in Section (1) with a minimum length of local collinear blocks (LCB) of 50 bp and compute conserved and variable CAAAAA motifs: 
+For example, to align the two dummy *C. difficile* genomes provided in **Section 1** with a minimum length of local collinear blocks (LCB) of 50 bp and compute conserved and variable CAAAAA motifs: 
 
 ./GO_ConsVar.sh 50 2 CDIF /path/to/mauve/ CAAAAA
 
@@ -205,7 +205,7 @@ Then run:
 
 	$ ./GO_TFBS.sh <TFBS_multifasta> <*.fasta> <TF_name>
 
-This wrapper takes a TFBS multifasta, computes a PSSM, and corresponding TFBS hits in a given DNA sequence in FASTA format. For example, to compute a hit list of XylR TFBSs in one of the dummy *C. difficile* FASTA files given in section (1):
+This wrapper takes a TFBS multifasta, computes a PSSM, and corresponding TFBS hits in a given DNA sequence in FASTA format. For example, to compute a hit list of XylR TFBSs in one of the dummy *C. difficile* FASTA files given in **Section 1**:
 
 ./GO_TFBS.sh XylR.fasta 020711.fas XylR
 
@@ -265,7 +265,7 @@ An **ORFs<strand>** regions file for each chromosome;
  
 In the ".../results/" folder:
 
-Particles files where each line represents a transcription profile sample;
+**Particles** files where each line represents a transcription profile sample;
 
 **Particles_struct** file - each line is a local bias profile sample;
 
@@ -326,7 +326,7 @@ It takes as input the FASTQ files, a reference FASTA file for read mapping, and 
 
 The SAF annotation format (example provided for *C. difficile* 630) has five required columns, including GeneID, Chr, Start, End and Strand. These columns can be in any order. More columns can be included in the annotation. Columns are tab-delimited. Column names are case insensitive. GeneID column may contain integers or character strings. Chromosomal names included in the Chr column must match those used included in the mapping results, otherwise reads will fail to be assigned. 
 
-The adapters file (example provided) is a multifasta one with adapter sequences identified in the FASTQ files, for example, via the AdapterRemoval tool:
+The adapters file (example provided) is a multifasta containing adapter sequences identified in the FASTQ files, for example, via the AdapterRemoval tool:
 
 .. code-block:: console
 
@@ -424,6 +424,8 @@ We can use the latter two to draw bipartitions on the best ML tree as follows. T
 
 Finally we can compute HR:
 
+.. code-block:: console
+
 	$ ./GO_HR.sh core.conv.fas RAxML_bipartitions.CDIF CDIF
 
 The output files include:
@@ -505,7 +507,7 @@ A subdirectory with:
 
 **phreport** file: a tab-delimited report file that shows (coordinate incremented by the step size, # hits per window, and the feat_name or locus name of the hits);
 
-By default, integron_finder will output 3 files under Results_Integron_Finder_mysequences:
+By default, integron_finder will output 3 files under **Results_Integron_Finder_mysequences**:
 
 **mysequences.integrons**: A file with all integrons and their elements detected in all sequences in the input file;
 
