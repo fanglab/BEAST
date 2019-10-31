@@ -43,8 +43,7 @@ Details on the requirements and usage of all shell wrapper scripts can be access
 ### 7) Detection of mobile genetic elements and defense systems
 * Restriction modification systems were detected using dedicated HMM profiles and scripts previously published in [Oliveira et al, 2014](https://www.ncbi.nlm.nih.gov/pubmed/25120263) and available [here](https://github.com/pedrocas81).
 * **GO_CRISPRs.sh** computes [CRISPRs](https://www.ncbi.nlm.nih.gov/pubmed/17577412) from a FASTA file and parses the output into a TAB format.
-* **GO_Integrons.sh** computes integrons from a FASTA file using [Integron Finder](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4889954/).
-* **GO_Prophages** computes prophages in a bacterial genome using [Phage Finder](https://academic.oup.com/nar/article/34/20/5839/3100473).
+* **GO_Prophages_Integrons_** computes prophages using [Phage Finder](https://academic.oup.com/nar/article/34/20/5839/3100473) and integrons using [Integron Finder](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4889954/).
 
 
 ## Documentation
