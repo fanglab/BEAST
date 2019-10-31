@@ -1,8 +1,9 @@
 #!/usr/bin/env Rscript
 
-# try http:// if https:// URLs are not supported
-# source("https://bioconductor.org/biocLite.R")
-# biocLite("DESeq2")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("DESeq2")
 
 library("DESeq2")
 library("RColorBrewer")

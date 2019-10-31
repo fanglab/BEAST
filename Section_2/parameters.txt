@@ -1,5 +1,5 @@
-signal='.../change_accordingly/name_of_signal_file.txt' #signal for which the MSR should be computed
-out='.../change_accordingly/MSR_output_filename.txt' #MSR output file columns: scale# segmentbegin segmentend SFC
+signal='.../change_accordingly/name_of_signal_file.txt' #path to signal file for which the MSR should be computed
+out='.../change_accordingly/MSR_output_filename.txt' #path where MSR output file should be dumped. columns: scale# segmentbegin segmentend SFC
 L=25 #number of scales (optional, default 25)
 Pth=1e-6 #P-value threshold (optional,default 1e-6)
 PruneFlag=1 #Output Pruned MSR (1), complete MSR (-1) (big file) or complete MSR exluding segments with SFC=0 (optional, default 0)

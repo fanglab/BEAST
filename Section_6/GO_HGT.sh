@@ -26,7 +26,8 @@ matrix=$1 #Pan_genome_matrix
 tree=$2 #Tree in Newick format
 prefix=$3 #Species prefix
 post_prob=$4 #Posterior gain probability
-prefixuc=$(echo $prefix | tr '[a-z]' '[A-Z]') #Uppercase species prefix
+prefixuc=$(echo "$prefix" | tr '[a-z]' '[A-Z]') #Uppercase species prefix
+prefixlc=$(echo "$prefix" | tr '[A-Z]' '[a-z]') #Uppercase species prefix
 rootdir=`dirname -- "$0"`
 wrk_dir=`cd $rootdir && pwd`
 
@@ -61,8 +62,7 @@ tput setaf 2; echo "Done!"; tput sgr0
 echo "Parsing Count output. Computing gains at tree tips. Please wait..."
 
 
-tmp1=$(
-awk '
+tmp1=$(awk '
    FNR==7{
         for(i=1;i<=NF;i++) 
             if ($i ~ str1 || $i ~ "Family") {
@@ -75,12 +75,13 @@ awk '
    {
        for(i=1;i<=nf;i++) 
            printf("%s%c",$fA[i], (i==nf)?ORS:FS)
-   }' str1=$prefix FS="\t" $prefixuc.Posterior.out
+   }' str1=$prefixlc FS="\t" $prefixuc.Posterior.out
 )
 
 
 
-tmp2=$(echo "$tmp1" | 
+tmp2=$(
+echo "$tmp1" |\
 awk '
    FNR==1{
         for(i=1;i<=NF;i++) 
@@ -96,13 +97,18 @@ awk '
            printf("%s%c",$fA[i], (i==nf)?ORS:FS)
    }' FS="\t"
 )
-   
-tmp3=$(echo "$tmp2" | awk '{if($1 != "ABSENT") print $0}')
+
+
+tmp3=$(echo "$tmp2" | awk '{if($1 !~ "ABSENT") print $0}')
+
+
 
 #---Choosing only lines with at least one entry >=post_prob.---
 #---Counting the number of fields >post_prob for each line.---
 tmp4=$(echo "$tmp3" | tail -n +2 | awk -v var=$post_prob '{ for(i=2; i<=NF; i++) if($i>=var && $i!~"NaN") print $0}' |\
 uniq | awk -v var=$post_prob '{ c=1; for(i=2; i<=NF; i++) if($i>=var) c++; print c-1 "\t" $0}')
+
+
 
 #---Deleting columns of losses (even columns)---
 #---Deleting lines having no gains---

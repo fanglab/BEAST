@@ -37,24 +37,22 @@ set maxRL = "$5"
 set minSL = "$6"
 set maxSL = "$7"
 set searchWL = "$8"
-set rootdir = `dirname -- "$0"``
+set rootdir = `dirname -- "$0"`
 set wrk_dir = `cd $rootdir && pwd`
 
 
 #########################################################################
 
-echo $fasta_file
 set b = $fasta_file:r
-set c = $CRT_filename:r
 if (! -e $b.crispr_raw) then
 	touch $b.crispr_raw
     	echo "search crispr in $b"
-	java -cp $c.jar crt -minNR $3 -minRL $4 -maxRL $5 -minSL $6 -maxSL $7 -searchWL $8 $b.fasta $b.crispr_raw
+	java -cp $CRT_filename crt -minNR $3 -minRL $4 -maxRL $5 -minSL $6 -maxSL $7 -searchWL $8 $fasta_file $b.crispr_raw
 endif
 
 echo "Parsing CRT output"
 
-awk '{print FILENAME,$0}' $b.crispr_raw | \
+awk '{print FILENAME,$0}' $b.crispr_raw |\
 awk '{if($2=="CRISPR") print $1,$2"_"$3,$5,$7; else if($2=="Repeats:") print $1,$3,$6,$9}' |\
 awk 'NR%2{printf "%s ",$0;next;}1' | sed 's/.crispr_raw//g' | awk '{print $1,$2,$3,$4,$6,$7,$8}' | sort -k1,1 -k3,3n |\
 awk 'BEGIN{print "Genome_ID", "CRISPR_ID", "CRISPR_Start", "CRISPR_END", "Number_repeats", "Av_repeat_size", "Av_spacer_size"}1' > $b.crispr_parsed
