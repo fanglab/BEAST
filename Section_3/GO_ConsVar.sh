@@ -30,7 +30,7 @@ motif=$5
 motif_up=`echo "$motif" | awk '{print toupper($0)}'`
 rev_com=`echo "$motif" | rev | tr ACGT TGCA`
 
-count=`ls -1 *.fas 2>/dev/null | wc -l`
+count=`ls -1 *.{fas,fasta} 2>/dev/null | wc -l`
 if [ $count != 0 ]; then 
 	fasta_list=`echo *.fas`
 else

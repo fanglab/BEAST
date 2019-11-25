@@ -25,7 +25,7 @@ endif
 
 set fasta_file = "$1"
 set motif = "$2"
-set motif_up = `echo "$motif" | awk '{print toupper}'`
+set motif_up = `echo "$motif" | awk '{print toupper($0)}'`
 set pth = "$3"
 set parameter = "$4"
 set MSR_out = "$5"
@@ -86,7 +86,6 @@ else
 	rm tmp*.txt $b.motif.txt $b.motif"_forward".txt $b.motif"_reverse".txt
 
 	echo ""
-    exit 0
 	tput setaf 2; echo "Done!"; tput sgr0
 endif
 

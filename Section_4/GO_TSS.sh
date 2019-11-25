@@ -29,8 +29,7 @@ filein3="$3" #fasta file
 counts_folder="$4"
 results_folder="$5"
 parseq_folder="$6"
-rootdir=`dirname -- "$0"`
-wrk_dir=`cd $rootdir && pwd`
+DIR=`dirname "$counts_folder"`
 
 
 #########################################################################
@@ -51,17 +50,17 @@ tput setaf 2; echo "Done!"; tput sgr0
 
 echo "Running Parseq - Transcription profile reconstruction. Please wait..."
 tmp1=`awk '{print $1}' "$filein2"`
-cp "${filein3}" *.wig *.chrom.sizes "$4"
-Parseq_pmcmc fast "$tmp1" all genome "$wrk_dir" "$results_folder" "$parseq_folder"
+cp "${filein3}" *.wig *.chrom.sizes "$counts_folder"
+Parseq_pmcmc fast "$tmp1" all genome "$DIR" "$results_folder" "$parseq_folder"
 echo ""
 tput setaf 2; echo "Done!"; tput sgr0
 
 
 echo "Running Parseq - Calling transcripts and post-Parseq. Please wait..."
-Parseq_particle2proba 0.1 "$tmp1" all genome "$wrk_dir" "$results_folder"
+Parseq_particle2proba 0.1 "$tmp1" all genome "$counts_folder" "$results_folder"
 echo ""
 tput setaf 2; echo "Done!"; tput sgr0
-rm *.sorted bam *.bai
+rm *.sorted.bam *.bai
 
 #########################################################################
 
