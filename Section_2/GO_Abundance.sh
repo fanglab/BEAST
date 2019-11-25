@@ -53,7 +53,7 @@ tput setaf 2; echo "Done!"; tput sgr0
 
 echo "Running R'MES..."
 
-rmes --"$5" -s "$1" -l "$3" -m "$4" -o temp1
+rmes --$apx_method -s $fasta_file -l $RMES_l -m $set RMES_w -o temp1
 rmes.format --tmax 0 --tmin 0 < temp1.0 > $b.RMES.txt
 rm temp*
 

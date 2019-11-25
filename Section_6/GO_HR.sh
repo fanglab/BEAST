@@ -38,7 +38,7 @@ echo ""
 mkdir align_folder
 set align_folder = "$wrk_dir/align_folder"
 cp "$1" "$align_folder"
-Rscript TTR-MBL.R $align_folder $2
+Rscript TTR-MBL.R $align_folder $tree
 rm -r $align_folder
 echo ""
 tput setaf 2; echo "Done!"; tput sgr0

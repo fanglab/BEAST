@@ -50,7 +50,7 @@ tput setaf 2; echo "Done!"; tput sgr0
 
 echo "Ancestral reconstruction using posterior probabilities and assuming uniform duplication. Please wait..."
 java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.ML -uniform_duplication true -opt_rounds 100 $tree temp1 > $prefixuc.ML1.r
-java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.Posteriors $2 temp1 $prefixuc.ML1.r > $prefixuc.Posterior.out
+java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.Posteriors $tree temp1 $prefixuc.ML1.r > $prefixuc.Posterior.out
 rm temp*
 echo ""
 tput setaf 2; echo "Done!"; tput sgr0
