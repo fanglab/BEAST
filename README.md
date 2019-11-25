@@ -4,7 +4,7 @@ Bacterial Epigenomics Analysis SuiTe
 ## Description
 With only a few thousand bacterial methylomes published to date, it is becoming increasingly evident that epigenetic regulation of gene expression is highly prevalent across bacterial species. Despite the exciting prospects for studying epigenetic regulation, our ability to comprehensively analyze bacterial epigenomes is limited by a bottleneck in integratively characterizing methylation events, methylation motifs, transcriptomic data, and functional genomics data. In this regard, we provided the first comprehensive comparative analysis of a large collection of epigenomes in a single bacterial species, as well as a detailed roadmap that can be used by the scientific community to leverage the current status quo of epigenetic analyses [(Oliveira et al., 2019, Nat. Microbiology)](https://www.nature.com/articles/s41564-019-0613-4). 
 
-BEAST includes a set of R and wrapper shell scripts that allow to reconstitute the major analyses steps of this publication.This pipeline requires a large number of dependencies (~50), and for this reason a detailed step-by-step tutorial is provided in the [Documentation](#documentation). Links to an executable repository and computational reproducibility platform will be added very soon.
+PLEASE NOTE: BEAST includes a set of R and wrapper shell scripts that allow to reconstitute the major analyses steps of this publication.This pipeline requires a large number of dependencies (~50), and for this reason a detailed step-by-step tutorial is provided in the [Documentation](#documentation). Links to an executable repository and computational reproducibility platform will be added very soon.
 
 
 ## Sections
