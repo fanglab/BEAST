@@ -515,3 +515,78 @@ By default, integron_finder will output 3 files under **Results_Integron_Finder_
 
 **integron_finder.out**: A copy of standard output;
 
+
+Running BEAST via Docker 
+=============
+For a quicker and more streamlined use of BEAST, and due to its large number of dependencies, the user may consider running it via Docker. Docker is a tool that uses OS-level virtualization, thus making it easier to run applications through capsules (containers). A step-by-step tutorial is presented below:
+
+- Install `Docker <https://www.docker.com>`_ on your computer following the instructions provided `here <https://docs.docker.com/v17.12/install/>`_.
+- Now, let us export capsules pertaining to the BEAST pipeline, and run it on our local machine. These capsules are stored on the Code Ocean platform, and can be found at each of the following links (missing ones will be updated soon) :
+
+
+Section 2 - `Motif Count Exceptionalities using Markov Models <https://codeocean.com/capsule/7128603>`_
+
+Section 2 - `Multi-Scale Representation (MSR) of Methylation Motifs <https://codeocean.com/capsule/3549941>`_
+
+Section 3 - `Conservation of Methylation Motifs across Genomes <https://codeocean.com/capsule/7530035>`_
+
+Section 4 - `TFBS Mapping <https://codeocean.com/capsule/1556026>`_
+
+Section 4 - `TSS Mapping <https://codeocean.com/capsule/0210369>`_
+
+Section 6 - `Gene Flux Analysis - Horizontal Gene Transfer (HGT) <https://codeocean.com/capsule/6747184>`_
+
+To download any of these capsules, click the 'Capsule' tab in the menu and select 'Export':
+
+.. image:: https://downloads.intercomcdn.com/i/o/76432781/d511ed8eb62a0186e8571425/Screen+Shot+2018-09-14+at+2.36.22+PM.png
+    :width: 300px
+    :align: center
+    :height: 200px
+    :alt: Capsule export
+
+This will prompt a download screen where you can download the environment template, metadata, code, and, optionally, the data (the latter is needed if you would like to run a test example). After unzipping, the user will see something like the following (this screenshot comes from a mac):
+
+.. image:: https://downloads.intercomcdn.com/i/o/76433548/8190be05b84f3c71488e8882/Screen+Shot+2018-09-14+at+2.32.38+PM.png
+    :width: 450px
+    :align: center
+    :height: 400px
+    :alt: Capsule export
+
+
+REPRODUCING.md contains specific instructions for how to reproduce the capsule's results locally, with notes on the necessary prerequisites and commands. If you have downloaded a published capsule, this document will point to the preserved Docker image in our registry. 
+
+/code has the capsule's code, and /data has the capsule's data. 
+
+/metadata has a file called metadata.yml.
+
+The /environment folder contains, at a minimum, a file called Dockerfile. Dockerfile is the recipe for rebuilding the capsule's computational environment locally. A postInstall script may be present as well.
+
+- Finally, let's open a command-line terminal (or Power Shell in Windows), and, inside the recently downloaded folder, simply copy / paste the following commands where the large alpha-numeric tag corresponds to the name of the container recently downloaded, (here exemplified for Section 2 - Motif Count Exceptionalities using Markov Models):
+
+.. code-block:: console
+
+  $ cd environment && docker build . --tag 78bdb7a2-6832-4167-b5e8-fd8f925e67e5; cd ..
+
+.. code-block:: console
+
+  $ docker run --rm \
+  --workdir /code \
+  --volume "$PWD/data":/data \
+  --volume "$PWD/code":/code \
+  --volume "$PWD/results":/results \
+  78bdb7a2-6832-4167-b5e8-fd8f925e67e5 ./run.sh
+
+- Output files are automatically placed in the Results folder. The container may be re-run using a different initial dataset. For this, the user just needs to replace the example files found within the /data folder with a different dataset of its own. 
+To re-run the capsule with alternative initial starting conditions, the user just need to edit the run.sh script, or simply replace it by the corresponding one liner given in the corresponding section above, changing the desired parameters. Again, taking the same capsule as example, we could test, for example, the exceptionality of the motif GATC in a user-provided yourfile.fasta according to a second order Markov model using:
+
+.. code-block:: console
+
+  $ docker run --rm \
+  --workdir /code \
+  --volume "$PWD/data":/data \
+  --volume "$PWD/code":/code \
+  --volume "$PWD/results":/results \
+  78bdb7a2-6832-4167-b5e8-fd8f925e67e5 ./GO_Abundance.sh yourfile.fasta GATC 4 2 gaussian
+  
+  
+
