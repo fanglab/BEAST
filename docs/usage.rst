@@ -536,6 +536,10 @@ Section 4 - `TSS Mapping <https://codeocean.com/capsule/0210369>`_
 
 Section 6 - `Gene Flux Analysis - Horizontal Gene Transfer (HGT) <https://codeocean.com/capsule/6747184>`_
 
+Section 7 - `CRISPR detection <https://codeocean.com/capsule/2337333/>`_
+
+Section 7 - `Prophage and Integron detection <https://codeocean.com/capsule/7248245/>`_
+
 To download any of these capsules, click the 'Capsule' tab in the menu and select 'Export':
 
 .. image:: https://downloads.intercomcdn.com/i/o/76432781/d511ed8eb62a0186e8571425/Screen+Shot+2018-09-14+at+2.36.22+PM.png
