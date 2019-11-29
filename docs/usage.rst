@@ -534,6 +534,8 @@ Section 4 - `TFBS Mapping <https://codeocean.com/capsule/1556026>`_
 
 Section 4 - `TSS Mapping <https://codeocean.com/capsule/0210369>`_
 
+Section 6 - `Gene Flux Analysis - Homologous Recombination (HR) <https://codeocean.com/capsule/4786305>`_
+
 Section 6 - `Gene Flux Analysis - Horizontal Gene Transfer (HGT) <https://codeocean.com/capsule/6747184>`_
 
 Section 7 - `CRISPR detection <https://codeocean.com/capsule/2337333/>`_
