@@ -6,7 +6,7 @@ With only a few thousand bacterial methylomes published to date, it is becoming 
 
 PLEASE NOTE: BEAST includes a set of R and wrapper shell scripts that allow to reconstitute the major analyses steps of this publication. However, this pipeline requires multiple dependencies, which have to be installed prior the use of BEAST. The user has two possibilities:
 
-* For those having a basic programming knowledge, they are ore moe than welcome to install these dependencies and run BEAST (a detailed step-by-step tutorial is nevertheless provided in the [Documentation](#documentation)). 
+* For those having a basic programming knowledge, they are ore more than welcome to install these dependencies and run BEAST (a detailed step-by-step tutorial is nevertheless provided in the [Documentation](#documentation)). 
 * For newcomers or those less familiar with installing some of the dependencies, we have provided links to Docker containers with pre-installed dependencies [here](https://beast-docs.readthedocs.io/en/latest/usage.html#running-beast-via-docker).
 
 ## Sections
