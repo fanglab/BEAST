@@ -37,8 +37,6 @@ else
 	fasta_list=`echo *.fasta`
 fi
 
-rootdir=`dirname -- "$0"`
-wrk_dir=`cd $rootdir && pwd`
 
 
 #########################################################################

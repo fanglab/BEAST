@@ -31,8 +31,6 @@ set RMES_l = "$3"
 set RMES_w = "$4"
 set apx_method = "$5"
 set rev_com = `echo "$motif" | rev | tr ACGT TGCA`
-set rootdir = `dirname -- $0`
-set wrk_dir = `cd $rootdir && pwd`
 set b = $fasta_file:r
 
 #########################################################################

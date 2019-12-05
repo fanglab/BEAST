@@ -32,8 +32,6 @@ set MSR_out = "$5"
 set rev_com = `echo "$motif_up" | rev | tr ACGT TGCA`
 set chr_size = `awk '/^>/ {if (seqlen) print seqlen;seqlen=0;next} {seqlen+=length($0)}END{print seqlen}' $fasta_file`
 set motif_size = `expr "${motif}" : '.*'`
-set rootdir = `dirname $0`
-set wrk_dir = `cd $rootdir && pwd`
 set b = $fasta_file:r
 
 #########################################################################

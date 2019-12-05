@@ -31,8 +31,6 @@ IDXPATH="$6" #PATH where indexed SILVA database files will be generated.
 TRIMPATH="$7" #PATH to Trimmomatic *.jar file.
 ADAPATH="$8" #PATH to adapters *.fa file (obtained using AdapterRemoval).
 prefix="$9" #file prefix.
-rootdir=`dirname -- "$0"`
-wrk_dir=`cd $rootdir && pwd`
 
 
 ######################################################

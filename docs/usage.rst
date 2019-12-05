@@ -521,7 +521,7 @@ Running BEAST via Docker
 For a quicker and more streamlined use of BEAST, and due to its large number of dependencies, the user may consider running it via Docker. Docker is a tool that uses OS-level virtualization, thus making it easier to run applications through capsules (containers). A step-by-step tutorial is presented below:
 
 - Install `Docker <https://www.docker.com>`_ on your computer following the instructions provided `here <https://docs.docker.com/v17.12/install/>`_.
-- Now, let us export capsules pertaining to the BEAST pipeline, and run it on our local machine. These capsules are stored on the Code Ocean platform, and can be found at each of the following links (missing ones will be updated soon) :
+- Now, let us export capsules pertaining to the BEAST pipeline, and run them on our local machine. These capsules are stored on the Code Ocean platform, and can be found at each of the following links (missing ones will be updated soon) :
 
 
 Section 1 - `Motif Refining <https://codeocean.com/capsule/4560512/tree/v1>`_
@@ -535,6 +535,8 @@ Section 3 - `Conservation of Methylation Motifs across Genomes <https://codeocea
 Section 4 - `TFBS Mapping <https://codeocean.com/capsule/8249940/tree/v1>`_
 
 Section 4 - `TSS Mapping <https://codeocean.com/capsule/1881809/tree/v1>`_
+
+Section 5 - `Differential Gene Expression Analysis <https://codeocean.com/capsule/8391319/tree/v1>`_
 
 Section 6 - `Gene Flux Analysis - Homologous Recombination (HR) <https://codeocean.com/capsule/9509504/tree/v1>`_
 

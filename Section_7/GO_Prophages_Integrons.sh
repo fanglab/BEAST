@@ -25,8 +25,6 @@ fi
 
 ACCESSION=$1
 PREFIX=$2
-rootdir=`dirname -- "$0"`
-wrk_dir=`cd $rootdir && pwd`
 
 
 #########################################################################

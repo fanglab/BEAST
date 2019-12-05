@@ -37,8 +37,6 @@ set maxRL = "$5"
 set minSL = "$6"
 set maxSL = "$7"
 set searchWL = "$8"
-set rootdir = `dirname -- "$0"`
-set wrk_dir = `cd $rootdir && pwd`
 
 
 #########################################################################
@@ -47,7 +45,7 @@ set b = $fasta_file:r
 if (! -e $b.crispr_raw) then
 	touch $b.crispr_raw
     	echo "search crispr in $b"
-	java -cp $CRT_filename crt -minNR $3 -minRL $4 -maxRL $5 -minSL $6 -maxSL $7 -searchWL $8 $fasta_file $b.crispr_raw
+	java -cp $CRT_filename crt -minNR $minNR -minRL $minRL -maxRL $maxRL -minSL $minSL -maxSL $maxSL -searchWL $searchWL $fasta_file $b.crispr_raw
 endif
 
 echo "Parsing CRT output"

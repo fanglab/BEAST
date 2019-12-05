@@ -28,8 +28,6 @@ prefix=$3 #Species prefix
 post_prob=$4 #Posterior gain probability
 prefixuc=$(echo "$prefix" | tr '[a-z]' '[A-Z]') #Uppercase species prefix
 prefixlc=$(echo "$prefix" | tr '[A-Z]' '[a-z]') #Uppercase species prefix
-rootdir=`dirname -- "$0"`
-wrk_dir=`cd $rootdir && pwd`
 
 
 #########################################################################
