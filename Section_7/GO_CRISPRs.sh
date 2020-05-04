@@ -45,6 +45,7 @@ set b = $fasta_file:r
 if (! -e $b.crispr_raw) then
 	touch $b.crispr_raw
     	echo "search crispr in $b"
+
 	java -cp $CRT_filename crt -minNR $minNR -minRL $minRL -maxRL $maxRL -minSL $minSL -maxSL $maxSL -searchWL $searchWL $fasta_file $b.crispr_raw
 endif
 

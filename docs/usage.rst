@@ -516,8 +516,9 @@ By default, integron_finder will output 3 files under **Results_Integron_Finder_
 **integron_finder.out**: A copy of standard output;
 
 
+
 Running BEAST via Docker 
-=============
+
 For a quicker and more streamlined use of BEAST, and due to its large number of dependencies, the user may consider running it via Docker. Docker is a tool that uses OS-level virtualization, thus making it easier to run applications through capsules (containers). A step-by-step tutorial is presented below:
 
 - Install `Docker <https://www.docker.com>`_ on your computer following the instructions provided `here <https://docs.docker.com/v17.12/install/>`_.
@@ -599,4 +600,3 @@ To re-run the capsule with alternative initial starting conditions, the user jus
   78bdb7a2-6832-4167-b5e8-fd8f925e67e5 ./GO_Abundance.sh yourfile.fasta GATC 4 2 gaussian
   
   
-
